@@ -34,12 +34,12 @@ function App() {
       isDone: false,
     };
 
-    setTasks((prevState) => [newTask, ...prevState!]);
+    setTasks((prevState) => [...prevState, newTask]);
   };
 
   const handleComplete = (id: string) => {
     setTasks((prevState) =>
-      prevState!.map((task: TaskType) =>
+      prevState.map((task: TaskType) =>
         task.taskName === id ? { ...task, isDone: true } : task
       )
     );
@@ -47,7 +47,7 @@ function App() {
 
   const handleDelete = (id: string) => {
     setTasks((prevState) =>
-      prevState!.filter((task: TaskType) => task.taskName !== id && task)
+      prevState.filter((task: TaskType) => task.taskName !== id && task)
     );
   };
 
